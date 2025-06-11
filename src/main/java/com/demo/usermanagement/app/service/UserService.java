@@ -3,6 +3,7 @@ package com.demo.usermanagement.app.service;
 import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import com.demo.usermanagement.app.dto.request.UserCreateRequest;
 import com.demo.usermanagement.app.dto.request.UserUpdateRequest;
@@ -10,8 +11,12 @@ import com.demo.usermanagement.app.dto.response.ErrorResponse;
 import com.demo.usermanagement.app.entity.UserModel;
 import com.demo.usermanagement.app.repository.UserRepository;
 
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
 public class UserService {
-    UserRepository userRepository;
+    final UserRepository userRepository;
     
     public ResponseEntity<Object> getAllUsers() {
         var userList =  userRepository.findAll();
@@ -84,6 +89,7 @@ public class UserService {
 
     public ResponseEntity<Object> createUser(UserCreateRequest request) {
         var userModel = new UserModel(request);
+        // userModel.setId(UUID.randomUUID().toString());
         userRepository.save(userModel);
 
         return ResponseEntity.ok().body("User created successfully");

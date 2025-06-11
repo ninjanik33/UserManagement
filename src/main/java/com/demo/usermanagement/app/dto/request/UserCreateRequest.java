@@ -12,6 +12,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserCreateRequest {
+    @NotBlank(message = "id cannot be blank")
+    String id;
+    
     @NotBlank(message = "name cannot be blank")
     String name;
 

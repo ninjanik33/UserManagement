@@ -41,6 +41,7 @@ public class UserModel {
     private String bs;
 
     public UserModel(UserCreateRequest request) {
+        this.id = request.getId();
         this.name = request.getName();
         this.username = request.getUsername();
         this.email = request.getEmail();
@@ -64,8 +65,8 @@ public class UserModel {
         this.name = request.getName();
         this.username = request.getUsername();
         this.email = request.getEmail();
-        Address address = request.getAddress();
-        Company company = request.getCompany();
+        com.demo.usermanagement.app.dto.request.UserUpdateRequest.Address address = request.getAddress();
+        com.demo.usermanagement.app.dto.request.UserUpdateRequest.Company company = request.getCompany();
         this.phone = request.getPhone();
         this.website = request.getWebsite();
         this.street = address.getStreet();
