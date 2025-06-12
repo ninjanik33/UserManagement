@@ -8,7 +8,6 @@ import com.demo.usermanagement.app.entity.UserModel;
 import java.util.List;
 import java.util.Optional;
 
-
 @Repository
 public interface UserRepository extends JpaRepository<UserModel, String> {
     String TABLE = "users";

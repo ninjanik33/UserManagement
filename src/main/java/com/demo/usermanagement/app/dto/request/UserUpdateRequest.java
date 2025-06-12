@@ -8,6 +8,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserUpdateRequest {
     @NotBlank(message = "id cannot be blank")
     String id;
@@ -34,7 +37,8 @@ public class UserUpdateRequest {
     Company company;
 
     @Data
-    public class Address {
+    @Builder
+    public static class Address {
         @NotBlank(message = "street cannot be blank")
         String street;
 
@@ -51,6 +55,7 @@ public class UserUpdateRequest {
         Geo geo;
     
         @Data
+        @Builder
         public static class Geo {
             @NotBlank(message = "lat cannot be blank")
             String lat;
@@ -61,7 +66,8 @@ public class UserUpdateRequest {
     }
 
     @Data
-    public class Company {
+    @Builder
+    public static class Company {
         @NotBlank(message = "name cannot be blank")
         String name;
 

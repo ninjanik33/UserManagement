@@ -37,7 +37,8 @@ public class UserCreateRequest {
     Company company;
 
     @Data
-    public class Address {
+    @Builder
+    public static class Address {
         @NotBlank(message = "street cannot be blank")
         String street;
 
@@ -54,6 +55,7 @@ public class UserCreateRequest {
         Geo geo;
     
         @Data
+        @Builder
         public static class Geo {
             @NotBlank(message = "lat cannot be blank")
             String lat;
@@ -64,7 +66,8 @@ public class UserCreateRequest {
     }
 
     @Data
-    public class Company {
+    @Builder
+    public static class Company {
         @NotBlank(message = "name cannot be blank")
         String name;
 

@@ -36,7 +36,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Object> getUser(@PathVariable("id") String id) {
-        return userService.getUser(id);
+        return userService.getUserById(id);
     }
 
     @DeleteMapping("/{id}")
